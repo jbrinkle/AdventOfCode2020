@@ -1,7 +1,7 @@
 console.log('-----Day 02-----');
 
 const inputReader = require('../utils/readInput').readFileInput;
-const passwordFile = inputReader('input', '\n', false);
+const passwordFile = inputReader('input', '\n', { skipEmptyLines: true });
 
 const pwdRegex = /(\d+)\-(\d+)\s+(\w)\:\s+(\w+)/;
 

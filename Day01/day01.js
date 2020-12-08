@@ -1,7 +1,7 @@
 console.log('-----Day 01-----');
 
 const inputReader = require('../utils/readInput').readFileInput;
-const expenseReport = inputReader('input', '\n', true);
+const expenseReport = inputReader('input', '\n', { parseNums: true });
 
 // part 1 - two numbers
 console.log(' Part 1');

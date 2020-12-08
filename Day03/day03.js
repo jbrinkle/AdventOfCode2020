@@ -1,7 +1,7 @@
 console.log('-----Day 03-----');
 
 const inputReader = require('../utils/readInput').readFileInput;
-const treemap = inputReader('input', '\n', false);
+const treemap = inputReader('input', '\n', {});
 
 /*
 Personal Example with slope = 3
