@@ -74,13 +74,17 @@ while (index !== copyOfCode.length) {
 
       popped.visited = false;
       index = popped.index;
-      keepPopping = popped.op === 'acc' || popped.alt;
-      if (keepPopping) {
+      keepPopping =
+        popped.op === 'acc' || // no substitutions for acc
+        popped.alt ||          // already tried alt path
+        alt > 0;               // can't try an alt path because only 1 sub can be made
+      if (keepPopping && popped.alt) {
         popped.alt = false; // maybe try again later in different path
         alt--;
-      } else {
+      } else if (!keepPopping) {
         popped.alt = true; // try alt path on this round
         alt++;
+        if (alt > 1) throw 'bad!';
         op = popped;
       }
     }
